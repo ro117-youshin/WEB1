@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1> 1. 정보입력 </h1>
+    <input type="text" placeholder="이름" autofocus><br><br>
+    <input type="text" placeholder="아이디"><br><br>
+    <input type="password" placeholder="비밀번호"><br><br>
+    <input type="password" placeholder="비밀번호 재입력"><br><br>
+    <select name="regionalNum" id="regNum">
+        <option value="" selected disabled hidden>전화번호</option>
+        <option value="1">02</option>
+        <option value="2">031</option>
+        <option value="3">032</option>
+        <option value="4">033</option>
+        <option value="5">041</option>
+        <option value="6">042</option>
+        <option value="7">043</option>
+        <option value="8">051</option>
+        <option value="9">052</option>
+        <option value="10">053</option>
+    </select>
+    <input type="number" name="firstPhone" id="fp">
+    <input type="number" name="secondPhone" id="sp"><br><br>
+    <select name="cellHead" id="ch">
+        <option value="" selected disabled hidden>휴대폰 번호</option>
+        <option value="1">010</option>
+        <option value="2">011</option>
+        <option value="3">---</option>
+    </select>
+    <input type="number" name="firstCell" id="fc">
+    <input type="number" name="secondCell" id="sc">
+    <input type="button" value="휴대폰 인증">
+    <br>
+    <input type="radio" id="r1">
+    <label for="r1">인증받은 휴대폰 번호를 대표번호로 사용 </label>
+    <input type="radio" id="r2">
+    <label for="r2">다른번호 등록 </label>
+    <input type="radio" id="r3">
+    <label for="r3">다음에 등록함 </label>
+
+    <br><br>
+
+    <input type="text" placeholder="우편번호" style="width: 400px; height: 15px;">
+    <input type="button" value="주소찾기">
+    <br><br>
+
+    <input type="submit" value="가입신청" style="background-color:greenyellow; color:black; width: 100px; height: 50px;">
+    <input type="button" value="취 소" style="width:100px; height: 50px;">
+</body>
+
+</html>
