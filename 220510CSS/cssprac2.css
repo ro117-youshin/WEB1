@@ -1,0 +1,42 @@
+/* selector */
+h1, h2{
+    border-style: solid;
+    border-color: darkslategray;
+    color: crimson;
+    width: 300px;
+    height: 100px;
+}
+
+body{
+    background-color: lightgreen;
+}
+
+p{
+    color: chocolate;
+}
+
+/* class selector */
+.span-class-01{
+    color: blueviolet;
+    font-size: 30px;
+    text-align: center;
+}
+.span-class-02{
+    color: darkorchid;
+    font-size: 30px;
+    text-align: center;
+}
+.span-class-03{
+    color: deeppink;
+    font-size: 30px;
+}
+
+/* id selector */
+#div-id-01{
+    background-color: bisque;
+    color: brown;
+}
+
+div.border{
+    border-style: groove;
+}

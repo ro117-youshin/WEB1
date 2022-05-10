@@ -1,0 +1,27 @@
+.title {
+    color: black;
+    text-align: center;
+    text-decoration: uppercase;
+}
+
+.chinese{
+    color: red;
+    text-align: left;
+}
+.overview {
+    text-transform: uppercase;
+    font-size: 30px;
+    font-style: oblique;
+}
+
+.font-fam{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+ol {
+    text-decoration: line-through;
+}
+
+.neirong {
+    text-decoration: underline;
+}
