@@ -1,0 +1,54 @@
+.container {
+    width: 500px;
+    height: 600px;
+}
+
+.header {
+    position: absolute;
+    background-color: aquamarine;
+    width: 270px;
+    height: 30px;
+    padding: 15px;
+}
+
+.box {
+    position: absolute;
+    top: 70px;
+    background-color: coral;
+    width: 300px;
+    height: 400px;
+}
+
+.chat-box {
+    margin: 20px;
+    top: 200px;
+}
+
+.chat-in-box1,
+.chat-in-box2,
+.chat-in-box3 {
+    width: 210px;
+    height: 30px;
+    padding: 25px;
+}
+
+.chat-in-box1 {
+    position: absolute;
+    display: inline-block;
+    background-color: cornsilk;
+    top: 100px;
+}
+
+.chat-in-box2 {
+    position: absolute;
+    display: inline-block;
+    background-color: cornsilk;
+    top: 200px;
+}
+
+.chat-in-box3 {
+    position: absolute;
+    display: inline-block;
+    background-color: cornsilk;
+    top: 300px;
+}

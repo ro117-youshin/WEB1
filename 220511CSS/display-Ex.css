@@ -1,0 +1,29 @@
+header {
+    background-color: black;
+    display: block;
+    text-align: center;
+    color: cornsilk;
+}
+
+div {
+    background-color: aquamarine;
+    display: inline-block;
+    height: 180px;
+}
+
+span {
+    background-color: blueviolet;
+    display: inline;
+    height: 150px;
+}
+
+p {
+    display: none;
+}
+
+footer {
+    background-color: brown;
+    display: block;
+    text-align: center;
+    color: white;
+}

@@ -1,0 +1,36 @@
+div{
+    width: 200px;
+    height: 100px;
+}
+h1, p{
+    text-align: center;
+    text-transform: uppercase;
+}
+.ex01{
+    overflow: auto;
+    background-color: chartreuse;
+}
+.ex02{
+    overflow: hidden;
+    background-color: darkseagreen;
+}
+.ex03{
+    overflow: scroll;
+    background-color: forestgreen;
+}
+.ex04{
+    overflow: clip;
+    background-color: darkolivegreen;
+}
+.ex05{
+    overflow: visible;
+    background-color: yellowgreen;
+}
+.ex06{
+    overflow-x: scroll;
+    background-color: aqua;
+}
+.ex07{
+    overflow-y: scroll;
+    background-color: aquamarine;
+}
