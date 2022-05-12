@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습4</title>
+    <style>
+        #html {
+            position: absolute;
+        }
+
+        #css {
+            position: absolute;
+            left: 30%;
+        }
+
+        #js {
+            position: absolute;
+            left: 60%;
+        }
+
+        .box {
+            position: relative;
+            vertical-align: middle;
+            text-align: center;
+            line-height: 50px;
+            height: 50px;
+            width: 20%;
+            color: antiquewhite;
+            background-color: gray;
+        }
+
+        .on-box {
+            position: relative;
+            vertical-align: middle;
+            text-align: center;
+            line-height: 50px;
+            height: 50px;
+            width: 20%;
+            background-color: whitesmoke;
+            border: 1px solid black;
+            color: black;
+        }
+    </style>
+    <script>
+        function mouseOverHtml() {
+            document.getElementById("html").className = 'on-box';
+            document.getElementById("css").className = 'box';
+            document.getElementById("js").className = 'box';
+        }
+        function mouseOverCss() {
+            document.getElementById("html").className = 'box';
+            document.getElementById("css").className = 'on-box';
+            document.getElementById("js").className = 'box';
+        }
+        function mouseOverJs() {
+            document.getElementById("html").className = 'box';
+            document.getElementById("css").className = 'box';
+            document.getElementById("js").className = 'on-box';
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div id="html" class="box" onmouseover="mouseOverHtml()"><b>HTML</b></div>
+        <div id="css" class="box" onmouseover="mouseOverCss()"><b>CSS</b></div>
+        <div id="js" class="box" onmouseover="mouseOverJs()"><b>JS</b></div>
+    </div>
+</body>
+
+</html>

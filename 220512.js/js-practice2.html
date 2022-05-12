@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습2</title>
+    <style>
+        #text {
+            position: absolute;
+            font-size: xx-large;
+            color: black;
+            left: 50%;
+            top: 45%;
+        }
+        #red, #blue, #green {
+            position: absolute;
+            color: black;
+            top: 50%;
+            font-size: 20px;
+        }
+
+        #red {
+            left: 49%;
+        }
+
+        #blue {
+            left: 51%;
+        }
+
+        #green {
+            left: 53%;
+        }
+    </style>
+    <script>
+        var inputString = prompt('텍스트를 입력해 주세요', '텍스트 입력');
+        do {
+            if (inputString == '' || inputString == null) {
+                alert('다시 텍스트를 입력해 주세요')
+                inputString = prompt('텍스트를 입력해 주세요', '텍스트 입력');
+            }
+        } while (inputString.length <= 0);
+
+        function mouseClickRed() {
+            alert('빨간색 입니다.');
+            let redText = document.getElementById("red").style.color = 'red';
+        }
+        function mouseClickBlue() {
+            alert('파란색 입니다.');
+            let blueText = document.getElementById("blue").style.color = 'blue';
+        }
+        function mouseClickGreen() {
+            alert('초록색 입니다.');
+            let greenText = document.getElementById("green").style.color = 'green';
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div id="text"><b>텍스트</b></div>
+        <div id="red" onclick="mouseClickRed()"><b>빨강</b></div>
+        <div id="blue" onclick="mouseClickBlue()"><b>파랑</b></div>
+        <div id="green" onclick="mouseClickGreen()"><b>초록</b></div>
+    </div>
+</body>
+
+</html>

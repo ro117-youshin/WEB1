@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getElementsByClassName</title>
+    <style>
+        div {
+            font-size: 50px;
+        }
+    </style>
+    <script>
+        function getMyClass() {
+            const div_list = document.getElementsByClassName('contain');
+            const div_list_length = div_list.length;
+            for (let i = 0; i < div_list_length; i++) {
+                alert(div_list[i].innerText);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id='div_1' class='contain'>
+        Div1
+    </div>
+    <div id='div_2' class='contain'>
+        Div2
+    </div>
+    <div id='div_3' class='not-contain'>
+        Div3
+    </div>
+    <input type='button' value='getElementsByClassName() - class이름으로 찾기' onclick='getMyClass()' />
+</body>
+
+</html>
