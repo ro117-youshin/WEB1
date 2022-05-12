@@ -26,29 +26,6 @@
     color: white;
 }
 
-.wrapper {
-    width: 100%;
-    min-height: 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.lists {
-    display: flex;
-    margin-right: 60px;
-    text-align: right;
-}
-
-.lists li {
-    margin-right: 20px;
-}
-
-.title {
-    font-size: 40px;
-    margin-left: 30px;
-}
-
 header {
     position: fixed;
     top: 0;
