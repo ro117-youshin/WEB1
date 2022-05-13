@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습4</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        .box {
+            position: relative;
+            vertical-align: middle;
+            text-align: center;
+            line-height: 50px;
+            height: 50px;
+            width: 20%;
+            color: antiquewhite;
+            background-color: gray;
+        }
+    </style>
+    <script>
+        $(function(){
+            $("#div-html").css("position", "absolute").css("left", "0%");
+            $("#div-css").css("position", "absolute").css("left", "30%");
+            $("#div-js").css("position", "absolute").css("left", "60%");;
+        });
+        $(function () {
+            $("#div-html").click(function () {
+                $("#div-html").css("color", "black").css("background-color", "white").css("border", "1px solid black");
+                $("#div-css").css("color", "antiquewhite").css("background-color", "gray");
+                $("#div-js").css("color", "antiquewhite").css("background-color", "gray");
+            });
+        });
+        $(function () {
+            $("#div-css").click(function () {
+                $("#div-html").css("color", "antiquewhite").css("background-color", "gray");
+                $("#div-css").css("color", "black").css("background-color", "white").css("border", "1px solid black");
+                $("#div-js").css("color", "antiquewhite").css("background-color", "gray");
+            });
+        });
+        $(function () {
+            $("#div-js").click(function () {
+                $("#div-html").css("color", "antiquewhite").css("background-color", "gray");
+                $("#div-css").css("color", "antiquewhite").css("background-color", "gray");
+                $("#div-js").css("color", "black").css("background-color", "white").css("border", "1px solid black");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="container">
+        <div id="div-html" class="box">HTML</div>
+        <div id="div-css" class="box">CSS</div>
+        <div id="div-js" class="box">JS</div>
+    </div>
+</body>
+
+</html>

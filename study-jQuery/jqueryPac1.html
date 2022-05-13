@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Practice</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <script>
+        $(function () {
+            console.log('onload 후에 동작!');
+
+            //click button jQuery1 
+            $('#button1').click(function () {
+                console.log('click jQuery ver!');
+            });
+            //click button jQuery2
+            $('#button2').on('click', function () {
+                console.log('click jQuery ver2!');
+            });
+            //JS click event
+            document.getElementById('button3').addEventListener('click', function () {
+                console.log('click js ver!')
+            })
+            //event chain, mouseover & mouseout
+            $('#button4').click(function () {
+                console.log('click 4!!');
+            }).mouseover(function () {
+                console.log('mousevoer!!');
+            }).mouseout(function () {
+                console.log('mouseout!!');
+            });
+
+            $('#button5').click(function () {
+                // $('#text').html('<b>text test');
+                $('#text').append('Hi there').append('How are you').attr('change','after');
+            });
+
+            $('.big-text').attr('name','click5');
+        });
+    </script>
+    <div id="title">Title</div>
+    <div class="big-text">Big Text</div>
+    <div class="big-text">Big Text2</div>
+    <button id="button1">click jQuery ver.</button>
+    <button id="button2">click jQuery ver2.</button>
+    <button id="button3">click Js ver.</button>
+    <button id="button4">event chain</button>
+    <br>
+    <p id="text">change text</p>
+    <button id="button5">click5</button>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <script>
+        $ (function(){
+            $('#all-check-button').click(function(){
+                $(':checkbox[name=mycheck]').each(function(){
+                    this.checked = true;
+                });
+            });
+            $('#check-confirm-button').click(function(){
+                if ($(':checkbox[name=mycheck').is(';checked')== true){
+                    $('#result').text() = 'OK';
+                } else {
+                    $('#result').text() = 'NO';
+                }
+            })
+            // animation
+            $('#box').click(function(){
+                //1초 후 시작
+                setTimeout(function () {
+                $('#box').animate({
+                    left:'+=250px'
+                }).animate({
+                    top:'+=250px'
+                }).animate({
+                    right:'+=250px'
+                }).animate({
+                    bottom:'+=250px'
+                })});
+            });
+        });
+    </script>
+    <style>
+        #box {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+        }
+    </style>
+    <form action="">
+        <input type="checkbox" name="mycheck">
+        <input type="checkbox" name="mycheck">
+        <input type="checkbox" name="mycheck">
+        <input type="checkbox" name="mycheck">
+        <input type="checkbox" name="mycheck">
+        <input type="button" id="all-check-button" value="전체 체크">
+        <input type="button" id="check-confirm-button" value="체크 확인">
+        <span id="result"> check button</span>
+        <div id="box"></div>
+    </form>
+
+</body>
+
+</html>

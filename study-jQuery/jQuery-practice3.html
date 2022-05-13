@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습3</title>
+    <link rel="stylesheet" href="jQuery-practice3-style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        let registerArticle =
+            $(function () {
+                $("#register-article").click(function () {
+                    let addArticle = prompt('기사제목을 입력해 주세요.', '기사 제목 입력');
+                    $("chat-box").append($('chat-in-box').text(addArticle));
+
+                });
+            })
+    </script>
+</head>
+
+<body>
+    <div class="contianer">
+        <div class="header"><Strong>기사 등록 하기</Strong></div>
+        <div class="box"></div>
+        <div class="chat-box">
+            <div class="chat-in-box1"><b>sudo-master</b> Hi! </div>
+            <div class="chat-in-box2"><b>BBa-DDa</b> Hello! </div>
+            <div class="chat-in-box3"><b>K-hmm</b> Hi! </div>
+            <div class="chat-in-box"></div>
+        </div>
+    </div>
+
+    <button id="register-article">등록하기</button>
+</body>
+
+</html>
