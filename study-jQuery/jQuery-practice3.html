@@ -6,34 +6,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>실습3</title>
-    <link rel="stylesheet" href="jQuery-practice3-style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        #container {
+            width: 300px;
+            height: 600px;
+        }
 
-    <script>
-        let registerArticle =
-            $(function () {
-                $("#register-article").click(function () {
-                    let addArticle = prompt('기사제목을 입력해 주세요.', '기사 제목 입력');
-                    $("chat-box").append($('chat-in-box').text(addArticle));
+        #header {
+            background-color: yellowgreen;
+            width: 300px;
+            height: 30px;
+            padding: 15px;
+        }
 
-                });
-            })
-    </script>
+        #chat-box {
+            display: inline-block;
+            /* margin: 10px; */
+            width: 330px;
+            background-color: coral;
+        }
+
+        #chat-in-box {
+            width: 250;
+            background-color: beige;
+            margin: 10px;
+        }
+        #register-article {
+            display: block;
+            border: 1px solid black;
+            background-color: cornsilk;
+            color: coral;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="contianer">
-        <div class="header"><Strong>기사 등록 하기</Strong></div>
-        <div class="box"></div>
-        <div class="chat-box">
-            <div class="chat-in-box1"><b>sudo-master</b> Hi! </div>
-            <div class="chat-in-box2"><b>BBa-DDa</b> Hello! </div>
-            <div class="chat-in-box3"><b>K-hmm</b> Hi! </div>
-            <div class="chat-in-box"></div>
-        </div>
+    <script>
+        $(function() {
+            $("#register-article").click(function () {
+                let addArticle = prompt('기사제목을 입력해 주세요.', '기사 제목 입력');
+                $("#chat-box").append(`<div id = "chat-in-box">${addArticle}</div>`);
+                $("#container").css("height", `+=200px`);
+            });
+        });
+    </script>
+    <div id="container">
+        <div id="header"><Strong>기사 등록 하기</Strong></div>
+        <div id="chat-box"></div>
+        <button id="register-article">등록하기</button>
     </div>
 
-    <button id="register-article">등록하기</button>
 </body>
 
 </html>
