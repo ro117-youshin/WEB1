@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>오후 실습1 </title>
+    <script>
+        $(function () {
+            $("input:submit").click(function () {
+                let check = false;
+
+                if (emailCheck($("input:text").val()) && $("input:password").val().length >= 5) {
+                    if ($("input:radio[name:gender]").is(":checked")) {
+                        if ($("select[name:job]").val()) {
+                            if ($("input:checkbox[name=hobby]:checked").length >= 3) {
+                                check = true;
+                            }
+                        }
+                    }
+                }
+                if (check) {
+                    alert("회원가입이 정상적으로 완료되었습니다.");
+                } else {
+                    alert("가입 조건이 맞지 않습니다. 다시 한번 확인해 주세요.");
+                }
+            });
+        });
+        function emailcheck(email) {
+            let emailRule = /\w+([-+.]\w+)*@\w+([-.]\w+)*\.[a-zA-Z]{2,4}$/;
+            return emailRule.test(email);
+        }
+        // function emailCheck(email) {
+        //     let email_rule = /\w+([-+.]\w+)*@\w+([-.]\w+)*\.[a-zA-Z]{2,4}$/;
+        //     if (!email_rule.test(email)) {
+        //         // alert("정확한 이메일 형식을 입력해 주세요.");
+        //         return false;
+        //     } else {
+        //         return true;
+        //     }
+        // }
+    </script>
+</head>
+
+<body>
+    <form action="">
+        <div>
+            <label for="id">아이디</label>
+            <input type="text" id="id">
+        </div>
+        <div>
+            <label for="pw">비밀번호</label>
+            <input type="password" id="pw">
+        </div>
+        <div>
+            <label for="gender">성별</label>
+            <input type="radio" name="gender">
+            <label for="gender">남자</label>
+            <input type="radio" name="gender">
+            <label for="gender">여자</label>
+        </div>
+        <div>
+            <label for="job">직업</label>
+            <select name="job" id="">
+                <option value="" selected disabled hidden></option>
+                <option value="1">front-end developer</option>
+                <option value="2">back-end developer</option>
+                <option value="3">full-stack developer</option>
+            </select>
+        </div>
+        <div>
+            <input type="checkbox" name="hobby">
+            <label for="dev">개발</label>
+            <input type="checkbox" name="hobby">
+            <label for="game">게임</label>
+            <input type="checkbox" name="hobby">
+            <label for="fishing">낚시</label>
+            <input type="checkbox" name="hobby">
+            <label for="workout">운동</label>
+            <input type="checkbox" name="hobby">
+            <label for="reading">독서</label>
+            <input type="checkbox" name="hobby">
+            <label for="listening">음악감상</label>
+        </div>
+        <div>
+            <input type="reset" value="취소">
+            <input type="submit" value="회원가입">
+        </div>
+    </form>
+</body>
+
+</html>
