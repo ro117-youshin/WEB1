@@ -63,7 +63,7 @@
             position: absolute;
             width: 100px;
             height: 100px;
-            bottom: 20px;
+            bottom: 100px;
             left: 20px;
         }
 
@@ -78,7 +78,7 @@
         #killer {
             position: absolute;
             width: 100px;
-            bottom: 20px;
+            bottom: 100px;
             right: -100px;
         }
 
@@ -89,34 +89,35 @@
             font-size: xx-large;
         }
 
-        #start {
+        #basic_screen {
             position: absolute;
-            font-size: 30px;
-            background-color: unset;
-            color: aliceblue;
-            border: 5px saddlebrown outset;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            left: 50%;
-            top: 30%;
+            left: 30%;
+            top: 15%;
+        }
+
+        #basic_screen_img {
+            width: 900px;
+            height: 300px;
         }
 
         #re_start {
             position: absolute;
-            font-size: 30px;
-            background-color: unset;
-            color: aliceblue;
-            border: 5px saddlebrown outset;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1;
+            left: 240px;
         }
 
+        .game_restart_button {
+            width: 100px;
+            height: 50px;
+        }
+        .game_start_button {
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            left: 40%;
+        }
         #score {
             position: absolute;
-            color: white;
+            color: black;
             font-size: 2rem;
             left: 20px;
             top: 20px;
@@ -132,17 +133,21 @@
     </div>
     <div id="gameover">
         <img src="../assets/gameover.png" alt=""><br>
-    </div>
-    <div id="start">
-        <button class="game_start_button">GAME START</button>
-    </div>
-    <div id="re_start">
-        <button class="game_start_button">RESTART</button>
+        <div id="re_start">
+            <img class="game_restart_button" src="../assets/restart.png" alt="">
+        </div>
     </div>
 
+    <div id="basic_screen">
+        <img id="basic_screen_img" src="../assets/basic_screen.png" alt="">
+        <div id="start">
+            <img class = "game_start_button" src="../assets/gamestart.png" alt="">
+            <!-- <button class="game_start_button">GAME START</button> -->
+        </div>
+    </div>
     <script>
-        const WIDTH = 1200;
-        const HEIGHT = 600;
+        const WIDTH = 2000;
+        const HEIGHT = 2000;
 
         let mario = $("#mario");
         let killer = $("#killer");
@@ -218,19 +223,18 @@
 
             // 게임오버 화면 보여주고
             $("#gameover").show();
-            $("#start").hide();
+            $("#basic_screen").hide();
             $("#re_start").show();
             $("#container").hide();
             $("#mariodead").show();
-            $("#start").show();
             score = 0;
             $("#score").text(`SCORE : ${score}`);
         }
 
         function gameStart() {
             $("#gameover").hide();
-            $("#start").show();
-            $("re_start").hide();
+            $("#basic_screen").show();
+            $("#re_start").hide();
             $("#container").show();
             $("#mariodead").hide();
             isGameOver = false;
@@ -257,6 +261,14 @@
         $(".game_start_button").click(function () {
             gameStart();
         });
+        // 게임 RESTART를 누를 시 게임 시작
+        // GAMESTART 버튼 숨기기
+        // 바로 게임 재시작
+        $(".game_restart_button").click(function () {
+            gameStart();
+            $("#basic_screen").hide();
+            game();
+        });
 
         function game() {
             setTimeout(moveKiller, 1000);
@@ -275,6 +287,7 @@
         $(function () {
             gameStart();
             $(".game_start_button").click(function () {
+                $("#basic_screen").hide();
                 game();
             });
         });
