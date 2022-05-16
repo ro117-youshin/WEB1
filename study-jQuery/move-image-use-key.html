@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습3 이미지 움직이기</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <style>
+        img {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+        }
+
+        #field {
+            position: absolute;
+            border: 3px solid red;
+            width: 1000px;
+            height: 1000px;
+            display: inline-block;
+        }
+    </style>
+    <div id="field">
+        <img id="gaeri" src="../assets/gaeri.jpg" alt="">
+    </div>
+    <script>
+        const WIDTH = 1000;
+        const HEIGHT = 1000;
+        let gaeri = $("#gaeri");
+
+        $("body").keydown(function (event) {
+            // console.log(event.key); 키보드를 눌러 key값 확인
+            let left = parseInt(gaeri.css("left").replace("px", ""));
+            let top = parseInt(gaeri.css("top").replace("px", ""));
+            let right = left + 100;
+            let bottom = top + 100;
+            let oneStep = 25; // 이동 픽셀 크기
+
+            switch (event.key) {
+                case "ArrowLeft":
+                    if (left - oneStep >= 0) {
+                        gaeri.css({ left: '-=25px' });
+                    }
+                    // console.log('left!!');
+                    break;
+                case "ArrowRight":
+                    if (right + oneStep <= WIDTH) {
+                        gaeri.css({ left: '+=25px' });
+                    }
+                    break;
+                case "ArrowUp":
+                    if (top - oneStep >= 0) {
+                        gaeri.css({ top: '-=25px' });
+                    }
+                    break;
+                case "ArrowDown":
+                    if (bottom + oneStep <= HEIGHT) {
+                        gaeri.css({ top: '+=25px' });
+                    }
+                    break;
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>checkboxlog 실습</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    table {
+        width: 300px;
+    }
+</style>
+<script>
+
+</script>
+
+
+<body>
+    <!-- table>tr*7>td*3 -->
+    <table>
+        <tr>
+            <th>
+                <input type="checkbox" name="" id="all"> 확인
+            </th>
+            <th>제목</th>
+            <th>글쓴 시간</th>
+        </tr>
+        <tr>
+            <!-- checkbox의 value는 웹 페이지에 표시되지 않는다. -->
+            <td><input type="checkbox" name="check" id="" value="aaaa"></td>
+            <td>aaaa</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="check" id="" value="bbbb"></td>
+            <td>bbbb</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="check" id="" value="cccc"></td>
+            <td>cccc</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="check" id="" value="dddd"></td>
+            <td>dddd</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="check" id="" value="ffff"></td>
+            <td>ffff</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="check" id="" value="eeee"></td>
+            <td>eeee</td>
+            <td></td>
+        </tr>
+    </table>
+    <input type="button" value="log" id="log_button">
+    <script>
+        $(function () {
+            $("#all").click(function () {
+                $("input[name=check]:checkbox").prop("checked", this.checked);
+            });
+            $("#log_button").click(function () {
+                if ($(":checkbox[name=check]").is(":checked") == false) {
+                    alert("선택 없음!");
+                    return;
+                }
+                $(":checkbox[name=check]:checked").each(function () {
+                    console.log($(this).val());
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

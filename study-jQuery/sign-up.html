@@ -11,22 +11,23 @@
         $(function () {
             $("input:submit").click(function () {
                 let check = false;
-
                 if (emailCheck($("input:text").val()) && $("input:password").val().length >= 5) {
-                    if ($("input:radio[name:gender]").is(":checked")) {
+                    if ($("input:radio[name:gender]").is(":checked") == true) {
                         if ($("select[name:job]").val()) {
                             if ($("input:checkbox[name=hobby]:checked").length >= 3) {
+
                                 check = true;
                             }
                         }
                     }
                 }
-                if (check) {
-                    alert("회원가입이 정상적으로 완료되었습니다.");
-                } else {
-                    alert("가입 조건이 맞지 않습니다. 다시 한번 확인해 주세요.");
-                }
             });
+            if (check) {
+                
+                alert("회원가입이 정상적으로 완료되었습니다.");
+            } else {
+                alert("가입 조건이 맞지 않습니다. 다시 한번 확인해 주세요.");
+            }
         });
         function emailcheck(email) {
             let emailRule = /\w+([-+.]\w+)*@\w+([-.]\w+)*\.[a-zA-Z]{2,4}$/;
