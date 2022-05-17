@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>study Ajax</title>
+</head>
+
+<body>
+    <script>
+
+        function loadDoc() { // 문서를 읽은 함수
+            //XMLHttpRequest 생성
+            let xhttp = new XMLHttpRequest();
+            // 응답 왔을 때의 callback 함수 정의
+            xhttp.onreadystatechange = function () {
+                // this는 xhttp를 가리킴
+                // this.readState == 4  :: 정상완료 (무조건 응답이 오면 정상, 오류 포함)
+                // https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/readyState
+
+                // this.status == 200 :: 서버 입장에서 정상 동작 (OK)
+                // this.status == 404 :: 서버 입장에서 오류 (Not Found)
+                // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#successful_responses
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("demo").innerHTML = this.responseText;
+                }
+            };
+            // 통신 방식이나 대상을 설정
+            // 여기서는 GET (데이터 읽기) 방식 사용
+            // 다른 도메인에 요청을 하게 되면 막힌다. CORS Policy (Cross Origin Resource Sharing)
+            xhttp.open("GET", "ajax_info.txt", true);
+            xhttp.send();
+        }
+    </script>
+    <div id="demo"></div>
+    <button onclick="loadDoc()">GET data</button>
+</body>
+
+</html>

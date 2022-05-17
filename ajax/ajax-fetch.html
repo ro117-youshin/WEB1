@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>study Ajax</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <script>
+        // y = f(x) > 수학
+        // function f(x) { content } > JS
+        // x => content > JS 화살표 표기법, lambda 표기법
+        function loadDoc() {
+            fetch('./people.json')
+                .then(response => response.json()) // then - Promise
+                // 위의 한 줄 코드는 아래와 같다.
+                // .then(function(response){
+                //     return response.json();
+                // });
+                .then(json => {
+                    document.getElementById("demo").innerHTML = JSON.stringify(json);
+                    console.log(json);
+
+                    document.getElementById("demo").textContent = json.github;
+                });
+        }
+    </script>
+    <div id="demo"></div>
+    <button onclick="loadDoc()">GET data</button>
+</body>
+
+</html>
