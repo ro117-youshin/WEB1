@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moive detail page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <style>
+        div {
+            text-align: center;
+            top: 10%;
+        }
+
+        img {
+            border: 5px black outset;
+            width: 400px;
+        }
+
+        button {
+            font-size: 15px;
+            margin: 5px;
+            width: 10%;
+            height: 10%;
+            border-radius: 20px;
+            background-color: grey;
+        }
+
+        #header {
+            font-style: oblique;
+            display: inline-block;
+            font-size: xx-large;
+            border-bottom: 2px black solid;
+        }
+
+        #sub_header {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 10px;
+            font-style: oblique;
+        }
+
+        #release_date {
+            font-style: oblique;
+        }
+
+        #overview_head {
+            font-size: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            font-style: oblique;
+        }
+
+        #overview {
+            text-align: center;
+            display: inline-block;
+
+            width: 600px;
+            height: auto;
+        }
+    </style>
+    <script>
+        $(function () {
+            // 추천 검색어 javascript get parameter
+            const queryString = window.location.search;
+            const parameters = new URLSearchParams(queryString);
+            const movieNum = parameters.get('id');
+            console.log(movieNum);
+
+            let movieDetailsPage = $("#movieDetailsPage");
+            fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=a64533e7ece6c72731da47c9c8bc691f&language=ko-KR&page=1`)
+                .then(response => response.json())
+                .then(data => {
+                    let moviePost = data.results[movieNum].poster_path;
+                    moviePost.replace("\"", "");
+                    movieDetailsPage.append(`<div id = "header"><b>${data.results[movieNum].title}</b></div>`);
+                    movieDetailsPage.append(`<div id = "sub_header"><b>: ${data.results[movieNum].original_title}</b></div>`);
+                    movieDetailsPage.append(`<div id = "release_date">개봉일 : ${data.results[movieNum].release_date}</div>`);
+                    movieDetailsPage.append(`<img id = "post" src = "https://image.tmdb.org/t/p/w500${moviePost}" alt="">`);
+                    movieDetailsPage.append(`<br><button id="vote_ave">⭐${data.results[movieNum].vote_average}</button>`);
+                    movieDetailsPage.append(`<button id="vote_count">✔${data.results[movieNum].vote_count}</button><br><br><br>`);
+                    movieDetailsPage.append(`<div id = "overview_head"><b> #OVERVIEW</b><br><br></div>`);
+                    movieDetailsPage.append(`<div id = "overview">${data.results[movieNum].overview}</div>`);
+                });
+        });
+    </script>
+    <div id="movieDetailsPage"></div>
+</body>
+
+</html>
