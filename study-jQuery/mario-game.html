@@ -221,7 +221,7 @@
             score = 0;
             $("#score").text(`SCORE : ${score}`);
         }
-
+        // 게임 시작
         function gameStart() {
             $("#gameover").hide();
             $("#basic_screen").show();
@@ -274,7 +274,7 @@
                 }
             }, 1000 / 30);
         }
-
+        
         $(function () {
             gameStart();
             $(".game_start_button").click(function () {
