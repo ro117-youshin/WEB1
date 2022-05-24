@@ -45,10 +45,12 @@
                             v.filteredPosts = json;
                         })
                 },
+                // 전체 데이터에서 검색한 데이터를 필터로 걸러 filteredPosts로 가져온다.
                 search: function (val) {
                     this.filteredPosts = this.posts.filter(post => post.title.includes(val))
                 }
             },
+            // query 검색을 하는 데이터를 감시하여 값이 변하면 debounce를 실행.
             watch: {
                 query: function (val) {
                     this.debouncedSearch(val);
