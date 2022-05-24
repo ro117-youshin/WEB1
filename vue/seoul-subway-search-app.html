@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <title>vue.js practice3</title>
+</head>
+
+<body>
+    <div id="app">
+        <input v-model="query" placeholder="검색어">
+        <div>
+            {{message}}
+        </div>
+        <ul>
+            <li v-for="trainLine in trainLines">
+                {{trainLine.trainLineNm}}, {{trainLine.arvlMsg2}}
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                message: '',
+                query:'',
+                trainLines: [], // 전체 데이터
+            },
+            created: function () {
+                //통신
+                this.getTrainLines();
+                
+                //디바운스 적용된 검색 함수 정의
+                this.debouncedSearch = _.debounce(this.getTrainLines, 1000);
+            },
+            methods: {
+                getTrainLines: function () {
+                    let vm = this;
+                    fetch(`http://swopenapi.seoul.go.kr/api/subway/sample/json/realtimeStationArrival/0/5/${this.query}`)
+                        .then(response => response.json())
+                        .then(function (json) {
+                            vm.trainLines = json.realtimeArrivalList;
+                            vm.message = '';
+                        })
+                        // 네트워크 에러 처리
+                        .catch(function (error) {
+                            vm.message = 'error! API request failed!'
+                        })
+                },
+            },
+            watch: {
+                query: function (val) {
+                    this.debouncedSearch(val);
+                    this.message = 'loading...';
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
